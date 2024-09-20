@@ -45,7 +45,12 @@ class CafeHomeBottomNavBar extends StatelessWidget {
                               minHeight: 15,
                             ),
                             child: Text(
-                              userCartData.length.toString(),
+                              userCartData
+                                  .fold(
+                                      0,
+                                      (sum, userData) =>
+                                          sum + userData.itemCount)
+                                  .toString(),
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,

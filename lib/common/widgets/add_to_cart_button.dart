@@ -43,9 +43,12 @@ class AddToCartButton extends StatelessWidget {
                 const SizedBox(
                   width: 10,
                 ),
-                const Text(
-                  'ADD',
-                  style: TextStyle(fontSize: 14),
+                GestureDetector(
+                  onTap: addAction,
+                  child: const Text(
+                    'ADD',
+                    style: TextStyle(fontSize: 14),
+                  ),
                 ),
               ]
             : [

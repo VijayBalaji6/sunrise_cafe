@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sunrise_cafe/common/widgets/custom_bordered_icon.dart';
 import 'package:sunrise_cafe/common/widgets/custom_expansion_tile.dart';
@@ -19,24 +19,20 @@ class OrderHistoryWidget extends ConsumerWidget {
       ),
       childWidget: [
         if (previousOrderHistory.isNotEmpty) ...[
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-            decoration: BoxDecoration(
-              color: const Color(0xFFF6F6F6),
-              borderRadius: BorderRadius.circular(20.0),
-              boxShadow: const [
-                BoxShadow(
-                  color: Color(0xFFFFFFFF),
-                  offset: Offset(0, 0),
-                  blurRadius: 5.0,
-                ),
-                BoxShadow(
-                  color: Color(0xFFCDCDCD),
-                  offset: Offset(3, 0),
-                  blurRadius: 5.0,
-                ),
-              ],
-            ),
+          Neumorphic(
+            style: NeumorphicStyle(
+                color: const Color(0xFFF6F6F6),
+                depth: -5.0,
+                intensity: .8,
+                disableDepth: false,
+                surfaceIntensity: .4,
+                shadowDarkColor: const Color(0xFFFFFFFF),
+                shadowLightColor: const Color(0xFFCDCDCD),
+                boxShape: NeumorphicBoxShape.roundRect(
+                    const BorderRadius.all(Radius.circular(15))),
+                shape: NeumorphicShape.convex,
+                lightSource: LightSource.lerp(
+                    LightSource.bottomRight, LightSource.topLeft, .9)!),
             child: ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

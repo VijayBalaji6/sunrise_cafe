@@ -20,24 +20,20 @@ class OrderCartWidget extends ConsumerWidget {
       childWidget: [
         if (userCartData.isNotEmpty) ...[
           Neumorphic(
-            drawSurfaceAboveChild: true,
             padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12),
             style: NeumorphicStyle(
-                border: const NeumorphicBorder(
-                    color: Color(0xFFCDCDCD), width: 0.6),
-                color: const Color(0xFFFFFFFF),
+                color: const Color(0xFFF6F6F6),
                 depth: -5.0,
-                intensity: 0.9,
-                disableDepth: true,
-                oppositeShadowLightSource: true,
-                surfaceIntensity: .1,
-                shadowDarkColor: const Color(0xFFCDCDCD),
-                shadowLightColor: const Color(0xFFFFFFFF),
+                intensity: .8,
+                disableDepth: false,
+                surfaceIntensity: .4,
+                shadowDarkColor: const Color(0xFFFFFFFF),
+                shadowLightColor: const Color(0xFFCDCDCD),
                 boxShape: NeumorphicBoxShape.roundRect(
                     const BorderRadius.all(Radius.circular(15))),
-                shape: NeumorphicShape.concave,
+                shape: NeumorphicShape.convex,
                 lightSource: LightSource.lerp(
-                    LightSource.bottomLeft, LightSource.bottomLeft, 1.9)!),
+                    LightSource.bottomRight, LightSource.topLeft, .9)!),
             child: Column(
               children: [
                 ListView.builder(
