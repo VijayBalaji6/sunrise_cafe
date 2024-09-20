@@ -50,7 +50,7 @@ final List<MainMenuCategoryModel> mainMenuItemCategories = [
         itemImage: 'assets/home/special_menu/image_2.jpg',
         itemPrice: 20),
     CafeItemModel(
-        productId: 6,
+        productId: 13,
         itemName: 'Chocolate Bowl 3',
         itemDescription: 'Sunset Acai Bowl',
         isVeg: true,

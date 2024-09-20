@@ -24,16 +24,16 @@ class SpecialItemCard extends ConsumerWidget {
       style: NeumorphicStyle(
           color: const Color(0xFFF6F6F6),
           depth: -5.0,
-          intensity: .1,
+          intensity: .8,
           disableDepth: false,
-          surfaceIntensity: .1,
+          surfaceIntensity: .4,
           shadowDarkColor: const Color(0xFFFFFFFF),
           shadowLightColor: const Color(0xFFCDCDCD),
           boxShape: NeumorphicBoxShape.roundRect(
               const BorderRadius.all(Radius.circular(15))),
           shape: NeumorphicShape.convex,
           lightSource:
-              LightSource.lerp(LightSource.right, LightSource.left, .9)!),
+              LightSource.lerp(LightSource.right, LightSource.bottomLeft, .9)!),
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 3),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
