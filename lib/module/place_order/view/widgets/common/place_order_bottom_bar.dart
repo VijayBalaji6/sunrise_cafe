@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sunrise_cafe/module/place_order/view_model/previous_order_provider.dart';
 import 'package:sunrise_cafe/module/place_order/view_model/user_order_provider.dart';
@@ -21,7 +21,7 @@ class PlaceOrderBottomBar extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Container(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             decoration: BoxDecoration(
               gradient: const LinearGradient(
                 colors: [
@@ -58,9 +58,9 @@ class PlaceOrderBottomBar extends ConsumerWidget {
                           fontSize: 16,
                         ),
                       ),
-                      const Row(
+                      Row(
                         children: [
-                          Text(
+                          const Text(
                             'PLACE ORDER',
                             style: TextStyle(
                               color: Colors.white,
@@ -68,14 +68,31 @@ class PlaceOrderBottomBar extends ConsumerWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
-                          CircleAvatar(
-                            backgroundColor: Color(0xFF007991),
-                            child: Icon(
+                          Neumorphic(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 7, horizontal: 7),
+                            style: NeumorphicStyle(
+                                color: const Color(0xFF007991),
+                                depth: -15.0,
+                                intensity: .1,
+                                disableDepth: true,
+                                oppositeShadowLightSource: true,
+                                surfaceIntensity: .9,
+                                shadowDarkColor: const Color(0xFFFFFFFF),
+                                shadowLightColor: const Color(0xFFFFFFFF),
+                                boxShape: const NeumorphicBoxShape.circle(),
+                                shape: NeumorphicShape.concave,
+                                lightSource: LightSource.lerp(
+                                    LightSource.bottomRight,
+                                    LightSource.topLeft,
+                                    1.1)!),
+                            child: const Icon(
                               Icons.arrow_forward,
                               color: Colors.white,
+                              weight: 4,
                             ),
                           ),
                         ],

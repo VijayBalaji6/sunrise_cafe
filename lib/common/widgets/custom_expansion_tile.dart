@@ -10,6 +10,7 @@ class CustomExpansionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
+        tilePadding: EdgeInsets.zero,
         shape: Border.all(color: Colors.transparent, width: 0),
         collapsedShape: Border.all(color: Colors.transparent, width: 0),
         maintainState: true,

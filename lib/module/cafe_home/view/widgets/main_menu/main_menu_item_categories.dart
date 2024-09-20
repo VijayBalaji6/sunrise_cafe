@@ -27,8 +27,11 @@ class MainMenuItemCategories extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: categoryItem.categoryItems.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return MainMenuItemCard(
-                      cafeItemData: categoryItem.categoryItems[index],
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: MainMenuItemCard(
+                        cafeItemData: categoryItem.categoryItems[index],
+                      ),
                     );
                   }),
             ],

@@ -9,7 +9,7 @@ class PlaceOrderBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           children: [
             OrderCartWidget(),

@@ -10,6 +10,8 @@ class CafeHomeBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
+      height: 55,
+      elevation: 5,
       color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -31,6 +33,7 @@ class CafeHomeBottomNavBar extends StatelessWidget {
                       if (userCartData.isNotEmpty)
                         Positioned(
                           right: 0,
+                          top: -5,
                           child: Container(
                             padding: const EdgeInsets.all(4),
                             decoration: const BoxDecoration(
@@ -38,8 +41,8 @@ class CafeHomeBottomNavBar extends StatelessWidget {
                               shape: BoxShape.circle,
                             ),
                             constraints: const BoxConstraints(
-                              minWidth: 20,
-                              minHeight: 20,
+                              minWidth: 15,
+                              minHeight: 15,
                             ),
                             child: Text(
                               userCartData.length.toString(),
@@ -85,6 +88,6 @@ Container bottomNavIcon({required String iconName}) {
       ],
     ),
     child: CustomBorderedIcon(
-        height: 30, width: 30, customBorderedIconName: iconName),
+        height: 40, width: 40, customBorderedIconName: iconName),
   );
 }

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sunrise_cafe/common/widgets/add_to_cart_button.dart';
 import 'package:sunrise_cafe/common/widgets/custom_bordered_icon.dart';
@@ -10,7 +10,6 @@ import 'package:sunrise_cafe/module/place_order/view_model/user_order_provider.d
 
 class OrderCartWidget extends ConsumerWidget {
   const OrderCartWidget({super.key});
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userCartData = ref.watch(userCartProvider);
@@ -20,32 +19,31 @@ class OrderCartWidget extends ConsumerWidget {
       ),
       childWidget: [
         if (userCartData.isNotEmpty) ...[
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            decoration: BoxDecoration(
-              color: const Color(0xFFF6F6F6),
-              borderRadius: BorderRadius.circular(20.0),
-              boxShadow: const [
-                BoxShadow(
-                  color: Color.fromRGBO(255, 255, 255, 1),
-                  offset: Offset(0, 0),
-                  blurRadius: 5.0,
-                ),
-                BoxShadow(
-                  color: Color(0xFFCDCDCD),
-                  offset: Offset(0, 3),
-                  blurRadius: 5.0,
-                ),
-              ],
-            ),
+          Neumorphic(
+            drawSurfaceAboveChild: true,
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12),
+            style: NeumorphicStyle(
+                border: const NeumorphicBorder(
+                    color: Color(0xFFCDCDCD), width: 0.6),
+                color: const Color(0xFFFFFFFF),
+                depth: -5.0,
+                intensity: 0.9,
+                disableDepth: true,
+                oppositeShadowLightSource: true,
+                surfaceIntensity: .1,
+                shadowDarkColor: const Color(0xFFCDCDCD),
+                shadowLightColor: const Color(0xFFFFFFFF),
+                boxShape: NeumorphicBoxShape.roundRect(
+                    const BorderRadius.all(Radius.circular(15))),
+                shape: NeumorphicShape.concave,
+                lightSource: LightSource.lerp(
+                    LightSource.bottomLeft, LightSource.bottomLeft, 1.9)!),
             child: Column(
               children: [
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: userCartData.length,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
                   itemBuilder: (context, index) {
                     final OrderedItemData currentOrderedItem =
                         userCartData[index];

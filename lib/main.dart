@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sunrise_cafe/module/cafe_home/view/cafe_home_screen.dart';
 
@@ -12,7 +12,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ProviderScope(
-      child: MaterialApp(
+      child: NeumorphicApp(
+        themeMode: ThemeMode.light,
+        theme: NeumorphicThemeData(
+          baseColor: Color(0xFFFFFFFF),
+          lightSource: LightSource.topLeft,
+          depth: 10,
+        ),
+        darkTheme: NeumorphicThemeData(
+          baseColor: Color(0xFF3E3E3E),
+          lightSource: LightSource.topLeft,
+          depth: 6,
+        ),
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         home: CafeHomeScreen(),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:sunrise_cafe/common/widgets/custom_expansion_tile.dart';
 import 'package:sunrise_cafe/common/widgets/expansion_menu_title_widget.dart';
 import 'package:sunrise_cafe/module/cafe_home/view/widgets/special_menu/special_item_grid.dart';
@@ -15,37 +15,46 @@ class HomeSpecialMenu extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 15),
-            Container(
-              height: 130,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                gradient: const LinearGradient(
-                  colors: [
-                    Color(0xFFC4C4C4),
-                    Color(0xffd9d9d9e5),
-                  ],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: const Offset(0, 4),
-                    spreadRadius: 2,
-                  ),
-                ],
+            Neumorphic(
+              style: NeumorphicStyle(
+                shape: NeumorphicShape.concave,
+                boxShape: NeumorphicBoxShape.roundRect(
+                    const BorderRadius.all(Radius.circular(15))),
               ),
-              child: const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    'Welcome to\nSunrise Cafe',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
+              padding: const EdgeInsets.all(5),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: const LinearGradient(
+                    colors: [
+                      Color(0xFFC4C4C4),
+                      Color(0xffd9d9d9e5),
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      blurStyle: BlurStyle.inner,
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 05,
+                      offset: const Offset(0, 6),
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
+                height: 130,
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Text(
+                      'Welcome to\nSunrise Cafe',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
